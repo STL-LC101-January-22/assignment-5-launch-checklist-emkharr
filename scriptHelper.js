@@ -17,27 +17,51 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-    if (testInput === Number) {
+    let converted = Number(testInput)
+    if (!isNaN(converted)) {
         return "Is a Number";
-    } else if (isNaN(testInput) === true) {
+    } else if (isNaN(converted)) {
         return "Not a Number";
-    } else if (testInput === '') {
-        return "Empty";
     }
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let form = document.getElementById("testForm");
-    form.addEventListener("submit", function (event) {
-        let pilotName = document.querySelector("input[name=pilotName]");
-        let copilotName = document.querySelector("input[name=copilotName]");
-        let fuelLevel = document.querySelector("input[name=fuelLevel]");
-        let cargoMass = document.querySelector("input[name=cargoMass]");
-        if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
-            alert("All fields are required");
-            // event.preventDefault();
-        }
-    })
+function formSubmission(document, list, pilotName, copilotName, fuelLevel, cargoLevel) {
+
+
+    
+    if (pilotInput.value === "" || copilotInput.value === "" || fuelLevelInput.value === "" || cargoLevelInput.value === "") {
+        window.alert("All fields are required");
+
+    }
+
+    let pilotTest = validateInput(pilotName)
+    if (pilotTest === "Is a Number") {
+        alert("Please enter characters A-Z");
+    }
+
+    let copilotNameTest = validateInput(copilotName);
+    if (copilotName === "Empty") {
+        alert("Please fill out");
+    } else if (copilotNameTest === "Is a Number") {
+        alert("please enter characters A-Z");
+    }
+
+
+    if (fuelLevel === "Empty") {
+        alert("Please fill out");
+    } else if (fuelLevel === "Not a Number") {
+        alert("please enter a number");
+    }
+
+
+    if (cargoLevel === "Empty") {
+        alert("Please fill out");
+    } else if (cargoLevel === "Not a Number") {
+        alert("please enter a number");
+    }
+
+    return;
+
 }
 
 async function myFetch() {
