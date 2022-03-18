@@ -78,11 +78,11 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         cargoStatus.textContent = `Cargo mass too heavy for launch`;
         return false
     } else {
-        launchStatusText.textContent = "Your shuttle is ready for launch";
-        launchStatusStyle.style.color = "green";
+        launchStatusText.textContent = "Shuttle is Ready for Launch";
+        launchStatusStyle.style.color = "rgb(65, 159, 106";
         listVar.style.visibility = "visible";
-        fuelStatus.textContent = `Your Fuel Level is good for launch`;
-        cargoStatus.textContent = `Your Cargo Mass is good for launch`;
+        fuelStatus.textContent = `Fuel level high enough for launch`;
+        cargoStatus.textContent = `Cargo mass low enough for launch`;
         return true;
     }
 }
